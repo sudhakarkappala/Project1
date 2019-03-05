@@ -23,6 +23,8 @@ pipeline {
 		stage('Package'){
 			steps{
 				sh 'mvn package'
+				sh "ssh opcjira@slc15gqg"
+				sh "scp /var/lib/jenkins/workspace/git_file_pipeline/target/Project1-0.0.1-SNAPSHOT.jar /scratch/opcjira/."				
 			}
 		}
 	}
